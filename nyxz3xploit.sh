@@ -1,4 +1,6 @@
 #!/bin/bash
+#0DAY para Routers Huawei Inc. Zte de ABA Cantv.
+
 # Este script hace uso de las contraseñas
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
