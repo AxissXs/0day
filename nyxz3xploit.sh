@@ -3,7 +3,7 @@
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
 # Pues ante la dictadura, yo también soy responsable de hacer
-# un cambio por el país, CHÚPALO MADURO. NO A LA DESINFORMACIÓN, 
+# un cambio por el país, CHÚPALO MADURO MARIPOSÓN. NO A LA DESINFORMACIÓN, 
 # DEBEMOS ESTAR COMUNICADOS SIEMPRE.
 
 
@@ -22,6 +22,8 @@ echo "                Script by @NyxZ3n               "
 echo "                                                "
 echo "   BruteForce a contraseñas predeterminadas en  "
 echo "   routers ABACANTVWIFIxxxx                     "
+echo "                                                "
+echo "           No te quedes incomunicado!!!!        "
 echo "------------------------------------------------"
 echo ""
 echo "========Presiona enter para continuar========"
