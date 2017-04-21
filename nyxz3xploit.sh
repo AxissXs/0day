@@ -3,7 +3,7 @@
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
 # Pues ante la dictadura, yo también soy responsable de hacer
-# un cambio por el país. NO A LA DESINFORMACIÓN, 
+# un cambio por el país, CHÚPALO MADURO. NO A LA DESINFORMACIÓN, 
 # DEBEMOS ESTAR COMUNICADOS SIEMPRE.
 
 
