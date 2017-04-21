@@ -2,7 +2,7 @@
 # Este script hace uso de las contraseñas
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
-# Pues ante la dictadura, yo también soy responsable de hacer
+# ante la dictadura todos somos responsables de hacer
 # un cambio por el país, CHÚPALO MADURO MARIPOSÓN. NO A LA DESINFORMACIÓN, 
 # DEBEMOS ESTAR COMUNICADOS SIEMPRE.
 
