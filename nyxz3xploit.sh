@@ -224,7 +224,7 @@ case $n in
 1)(xterm -hold -e sudo aircrack-ng $HANDSHAKE) & ;;
 
 2)clear
-echo "Empezando fuerzabruta de 6 dígitos numéricos."
+echo "Empezando fuerza bruta de 6 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
@@ -238,7 +238,7 @@ echo ""
 read -p "Presione cualquier tecla para volver.";;
 
 3)clear
-echo "Empezando fuerzabruta de 7 dígitos numéricos."
+echo "Empezando fuerza bruta de 7 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
@@ -254,7 +254,7 @@ read -p "Presione cualquier tecla para volver.";;
 
 
 *)clear
-echo "Invalid option"
+echo "Opción Inválida"
 echo ""
 read -p "Presione cualquier tecla para volver.";;
 
